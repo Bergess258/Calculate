@@ -10,7 +10,7 @@ namespace Calculate
     {
         private double a,b,c,d;//коэфы
         private bool roots;//имеет ли решение
-        private double x,y,z;
+        private double x,y,z;//тип решение
         public double A 
         {
             get{return a;}
