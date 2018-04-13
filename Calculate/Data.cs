@@ -9,8 +9,6 @@ namespace Calculate
     class Data
     {
         private double a,b,c,d;//коэфы
-        private bool roots;//имеет ли решение
-        private double x,y,z;//тип решение
         public double A 
         {
             get{return a;}
@@ -30,26 +28,6 @@ namespace Calculate
         {
             get{return d;}
             set{d=value;}
-        }
-        public double X 
-        {
-            get{return x;}
-            set{x=value;}
-        }
-        public double Y 
-        {
-            get{return y;}
-            set{y=value;}
-        }
-        public double Z 
-        {
-            get{return z;}
-            set{z=value;}
-        }
-        public bool Roots 
-        {
-            get{return roots;}
-            set{roots=value;}
         }
     }
 }
