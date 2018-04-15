@@ -12,15 +12,15 @@ namespace Calculate
         /// <summary>
         /// Значения уравнений матрицы
         /// </summary> 
-        protected double A1, B1, C1, D1;
-        protected double A2, B2, C2, D2;
-        protected double A3, B3, C3, D3;
+        private double A1, B1, C1, D1;
+        private double A2, B2, C2, D2;
+        private double A3, B3, C3, D3;
 
 
-        static protected int lengthEnhanced = 4;                                        //кол-во строк и столбцов расширенной матрицы
-        static protected int lengthBase = 3;                                            //кол-во строк и столбцов основной матрицы
+        static private int lengthEnhanced = 4;                                        //кол-во строк и столбцов расширенной матрицы
+        static private int lengthBase = 3;                                            //кол-во строк и столбцов основной матрицы
 
-        protected double[,] masEnhanced = new double[lengthBase, lengthEnhanced];       //расширенная матрица
+        private double[,] masEnhanced = new double[lengthBase, lengthEnhanced];       //расширенная матрица
 
         /// <summary>
         /// Конструктор без параметров
@@ -96,9 +96,11 @@ namespace Calculate
             per3 = masEnhanced[0, 2] * masEnhanced[1, 0] * masEnhanced[2, 1];
             per4 = masEnhanced[0, 2] * masEnhanced[1, 1] * masEnhanced[2, 0];
             per5 = masEnhanced[0, 1] * masEnhanced[1, 0] * masEnhanced[2, 2];
-            per6 = masEnhanced[0, 1] * masEnhanced[1, 2] * masEnhanced[2, 1];
+            per6 = masEnhanced[0, 0] * masEnhanced[1, 2] * masEnhanced[2, 1];
 
-            Determinant = per1 - per2 - per3 - per4 - per5 - per6;
+            double Sum1 = per1 + per2 + per3;
+            double Sum2 = per4 + per5 + per6;
+            Determinant = Sum1 - Sum2;
             return Determinant;
         }
 
@@ -125,9 +127,11 @@ namespace Calculate
             per3 = masSupport[0, 2] * masSupport[1, 0] * masSupport[2, 1];
             per4 = masSupport[0, 2] * masSupport[1, 1] * masSupport[2, 0];
             per5 = masSupport[0, 1] * masSupport[1, 0] * masSupport[2, 2];
-            per6 = masSupport[0, 1] * masSupport[1, 2] * masSupport[2, 1];
+            per6 = masSupport[0, 0] * masSupport[1, 2] * masSupport[2, 1];
 
-            SupportDeterminant1 = per1 - per2 - per3 - per4 - per5 - per6;
+            double Sum1 = per1 + per2 + per3;
+            double Sum2 = per4 + per5 + per6;
+            SupportDeterminant1 = Sum1 - Sum2;      //высчитываем вспомогательный определитель
             return SupportDeterminant1;
         }
 
@@ -154,9 +158,11 @@ namespace Calculate
             per3 = masSupport[0, 2] * masSupport[1, 0] * masSupport[2, 1];
             per4 = masSupport[0, 2] * masSupport[1, 1] * masSupport[2, 0];
             per5 = masSupport[0, 1] * masSupport[1, 0] * masSupport[2, 2];
-            per6 = masSupport[0, 1] * masSupport[1, 2] * masSupport[2, 1];
+            per6 = masSupport[0, 0] * masSupport[1, 2] * masSupport[2, 1];
 
-            SupportDeterminant2 = per1 - per2 - per3 - per4 - per5 - per6;
+            double Sum1 = per1 + per2 + per3;
+            double Sum2 = per4 + per5 + per6;
+            SupportDeterminant2 = Sum1 - Sum2;      //высчитываем вспомогательный определитель
             return SupportDeterminant2;
         }
 
@@ -183,13 +189,32 @@ namespace Calculate
             per3 = masSupport[0, 2] * masSupport[1, 0] * masSupport[2, 1];
             per4 = masSupport[0, 2] * masSupport[1, 1] * masSupport[2, 0];
             per5 = masSupport[0, 1] * masSupport[1, 0] * masSupport[2, 2];
-            per6 = masSupport[0, 1] * masSupport[1, 2] * masSupport[2, 1];
+            per6 = masSupport[0, 0] * masSupport[1, 2] * masSupport[2, 1];
 
-            SupportDeterminant3 = per1 - per2 - per3 - per4 - per5 - per6;
+            double Sum1 = per1 + per2 + per3;
+            double Sum2 = per4 + per5 + per6;
+            SupportDeterminant3 = Sum1 - Sum2;      //высчитываем вспомогательный определитель
             return SupportDeterminant3;
         }
 
-        
+        /// <summary>
+        /// Получаем решение 
+        /// </summary>
+        /// <param name="A"></param>
+        /// <param name="B"></param>
+        /// <param name="C"></param>
+        public void Values(ref double A, ref double B, ref double C)
+        {
+            masEnhanced = MasCreating();                                        //присваиваем значения матрице            
+            double SupDeterminant1 = SupportDeterminant1();                     //получаем первый вспомогательный определитель
+            double SupDeterminant2 = SupportDeterminant2();                     //получаем второй вспомогательный определитель
+            double SupDeterminant3 = SupportDeterminant3();                     //получаем третий вспомогательный определитель
+            double Determinant = DeterminantEnhancedMatrix();                   //получаем определитель основной матрицы
+
+            A = SupDeterminant1 / Determinant;                                  //считаем 1 значение (A или x1)
+            B = SupDeterminant2 / Determinant;                                  //считаем 2 значение (B или x2)
+            C = SupDeterminant3 / Determinant;                                  //считаем 3 значение (C или x3)
+        }
 
 
     }
