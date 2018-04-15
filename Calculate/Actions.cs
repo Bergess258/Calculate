@@ -17,11 +17,11 @@ namespace Calculate
         static protected double A3 = 0, B3 = 0, C3 = 0, D3 = 0;
 
 
-        static protected int lengthEnhanced = 4;        
+        static protected int lengthEnhanced = 4;
         static protected int lengthBase = 3;
 
         double[,] masEnhanced = new double[lengthBase, lengthEnhanced];
-        double [,] masBase = new double[lengthBase,lengthBase];
+        double[,] masBase = new double[lengthBase, lengthBase];
 
         public static double[,] MasCreating(double[,] masEnhanced)
         {
@@ -39,7 +39,7 @@ namespace Calculate
             masEnhanced[2, 1] = B3;
             masEnhanced[2, 2] = C3;
             masEnhanced[2, 3] = D3;
-            
+
 
             return masEnhanced;
         }
@@ -49,9 +49,9 @@ namespace Calculate
         /// </summary>
         /// <param name="masEnhanced"></param>
         /// <returns></returns>
-        public static double OpredelitelEnhancedMatrix (double [,] masEnhanced)
+        public static double OpredelitelEnhancedMatrix(double[,] masEnhanced)
         {
-            double Opredelitel=0;
+            double Opredelitel = 0;
             double per1, per2, per3, per4, per5, per6;
 
             per1 = masEnhanced[0, 0] * masEnhanced[1, 1] * masEnhanced[2, 2];
@@ -64,7 +64,5 @@ namespace Calculate
             Opredelitel = per1 - per2 - per3 - per4 - per5 - per6;
             return Opredelitel;
         }
-
-        //lol kek cheburek
     }
 }
