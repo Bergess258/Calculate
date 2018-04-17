@@ -111,6 +111,7 @@ namespace Calculate
         /// <returns></returns>
         private double SupportDeterminant1()
         {
+            masEnhanced = MasCreating();
             double SupportDeterminant1;                                        //первый вспомогательный определитель
             double[,] masSupport = new double[lengthBase,lengthBase];          //основная матрица
             masSupport = masEnhanced;                                          //присваиваем значения основной матрице (без D)
@@ -142,6 +143,7 @@ namespace Calculate
         /// <returns></returns>
         private double SupportDeterminant2()
         {
+            masEnhanced = MasCreating();
             double SupportDeterminant2;                                         //второй вспомогательный определитель
             double[,] masSupport = new double[lengthBase, lengthBase];          //основная матрица
             masSupport = masEnhanced;                                           //присваиваем значения основной матрице (без D)
@@ -173,6 +175,7 @@ namespace Calculate
         /// <returns></returns>
         private double SupportDeterminant3()
         {
+            masEnhanced = MasCreating();
             double SupportDeterminant3;                                         //третий вспомогательный определитель
             double[,] masSupport = new double[lengthBase, lengthBase];          //основная матрица
             masSupport = masEnhanced;                                           //присваиваем значения основной матрице (без D)
