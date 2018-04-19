@@ -47,7 +47,7 @@ namespace Calculate
             MessageBox.Show(s);
             if (string.IsNullOrEmpty(label2.Text) && string.IsNullOrEmpty(label8.Text) && string.IsNullOrEmpty(label9.Text))
             {
-                MessageBox.Show("WWWWW");//1 система
+                //1 система
                 this.label2.Text = this.A1.Text + "A" +"+"+this.B1.Text+"B"+"+"+this.C1.Text+"C" +"="+ this.D1.Text;
                 this.label8.Text = this.A2.Text + "A" +"+"+this.B2.Text +"B"+"+"+this.C2.Text +"C"+"="+ this.D2.Text;
                 this.label9.Text = this.A3.Text + "A"+"+" +this.B3.Text + "B" + "+" + this.C3.Text + "C" + "=" + this.D3.Text;
@@ -56,7 +56,7 @@ namespace Calculate
 
             if (string.IsNullOrEmpty(label21.Text) && string.IsNullOrEmpty(label17.Text) && string.IsNullOrEmpty(label13.Text))
             {
-                MessageBox.Show("WWWWW2");//2 система
+                //2 система
                 this.label21.Text = this.A1.Text + "A" + "+" + this.B1.Text + "B" + "+" + this.C1.Text + "C" + "=" + this.D1.Text;
                 this.label17.Text = this.A2.Text + "A" + "+" + this.B2.Text + "B" + "+" + this.C2.Text + "C" + "=" + this.D2.Text;
                 this.label13.Text = this.A3.Text + "A" + "+" + this.B3.Text + "B" + "+" + this.C3.Text + "C" + "=" + this.D3.Text;
@@ -64,7 +64,7 @@ namespace Calculate
             }
             if (string.IsNullOrEmpty(label30.Text) && string.IsNullOrEmpty(label29.Text) && string.IsNullOrEmpty(label28.Text))
             {
-                MessageBox.Show("WWWWW3");//3 система
+                //3 система
                 this.label30.Text = this.A1.Text + "A" + "+" + this.B1.Text + "B" + "+" + this.C1.Text + "C" + "=" + this.D1.Text;
                 this.label29.Text = this.A2.Text + "A" + "+" + this.B2.Text + this.C2.Text + "C" + "=" + this.D2.Text;
                 this.label28.Text = this.A3.Text + "A" + "+" + this.B3.Text + this.C3.Text + "C" + "=" + this.D3.Text;
@@ -72,7 +72,7 @@ namespace Calculate
             }
             if (string.IsNullOrEmpty(label34.Text) && string.IsNullOrEmpty(label33.Text) && string.IsNullOrEmpty(label32.Text))
             {
-                MessageBox.Show("WWWWW4");//4 система
+                //4 система
                 this.label34.Text = this.A1.Text + "A" + "+" + this.B1.Text + "B" + "+" + this.C1.Text + "C" + "=" + this.D3.Text;
                 this.label33.Text = this.A2.Text + "A" + "+" + this.B2.Text + "B" + "+" + this.C2.Text + "C" + "=" + this.D3.Text;
                 this.label32.Text = this.A3.Text + "A" + "+" + this.B3.Text + "B" + "+" + this.C3.Text + "C" + "=" + this.D3.Text;
