@@ -113,7 +113,7 @@ namespace Calculate
         {
             double SupportDeterminant1;                                        //первый вспомогательный определитель
             double[,] masSupport = new double[lengthBase,lengthBase];          //основная матрица
-            masSupport = masEnhanced;                                          //присваиваем значения основной матрице (без D)
+            masSupport = MasCreating();                                        //присваиваем значения основной матрице (без D)
 
             masSupport[0, 0] = D1;
             masSupport[1, 0] = D2;
@@ -144,7 +144,7 @@ namespace Calculate
         {
             double SupportDeterminant2;                                         //второй вспомогательный определитель
             double[,] masSupport = new double[lengthBase, lengthBase];          //основная матрица
-            masSupport = masEnhanced;                                           //присваиваем значения основной матрице (без D)
+            masSupport = MasCreating();                                           //присваиваем значения основной матрице (без D)
 
             masSupport[0, 1] = D1;
             masSupport[1, 1] = D2;
@@ -175,7 +175,7 @@ namespace Calculate
         {
             double SupportDeterminant3;                                         //третий вспомогательный определитель
             double[,] masSupport = new double[lengthBase, lengthBase];          //основная матрица
-            masSupport = masEnhanced;                                           //присваиваем значения основной матрице (без D)
+            masSupport = MasCreating();                                         //присваиваем значения основной матрице (без D)
 
             masSupport[0, 2] = D1;
             masSupport[1, 2] = D2;
@@ -205,12 +205,12 @@ namespace Calculate
         /// <param name="C"></param>
         public void Values(ref double A, ref double B, ref double C)
         {
-            masEnhanced = MasCreating();                                        //присваиваем значения матрице            
+            masEnhanced = MasCreating();                                        //присваиваем значения матрице     
+            double Determinant = DeterminantEnhancedMatrix();                   //получаем определитель основной матрицы       
             double SupDeterminant1 = SupportDeterminant1();                     //получаем первый вспомогательный определитель
             double SupDeterminant2 = SupportDeterminant2();                     //получаем второй вспомогательный определитель
             double SupDeterminant3 = SupportDeterminant3();                     //получаем третий вспомогательный определитель
-            double Determinant = DeterminantEnhancedMatrix();                   //получаем определитель основной матрицы
-
+            
             A = SupDeterminant1 / Determinant;                                  //считаем 1 значение (A или x1)
             B = SupDeterminant2 / Determinant;                                  //считаем 2 значение (B или x2)
             C = SupDeterminant3 / Determinant;                                  //считаем 3 значение (C или x3)
