@@ -103,7 +103,7 @@ namespace Calculate
         private void A1_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
-            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44) //цифры, клавиша BackSpace и запятая
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && number != 8 && number != 44&&number!=45) //цифры, клавиша BackSpace и запятая
             {
                 e.Handled = true;
             }
