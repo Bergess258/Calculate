@@ -66,38 +66,6 @@ namespace Calculate
             Temp.Values(ref x1, ref x2, ref x3);
             string s = "A="+x1+"\nB="+x2+"\nC="+x3;
             MessageBox.Show(s);
-            int c = 0;
-            if (c==0)
-            {
-                //1 система
-                
-                c++;
-                return;
-            }
-
-            if (c==1)
-            {
-                //2 система
-                
-                c++;
-                return;
-            }
-            if (string.IsNullOrEmpty(label30.Text) && string.IsNullOrEmpty(label29.Text) && string.IsNullOrEmpty(label28.Text))
-            {
-                //3 система
-                
-
-                return;
-            }
-            if (string.IsNullOrEmpty(label34.Text) && string.IsNullOrEmpty(label33.Text) && string.IsNullOrEmpty(label32.Text))
-            {
-                //4 система
-                
-                return;
-            }
-
-
-
         }
 
         private void A1_KeyPress(object sender, KeyPressEventArgs e)
